@@ -4,5 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Crucial for GitHub Pages to load assets relatively
+  base: './', // Relative asset paths for GitHub Pages
+  build: {
+    outDir: 'docs', // Generates files in /docs so GitHub Pages can serve directly from /docs
+  },
 })
