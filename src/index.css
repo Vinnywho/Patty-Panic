@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Lilita+One&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fce4ec;
+  font-family: 'Fredoka', 'Comic Sans MS', sans-serif;
+}
+
+/* ── UI Container ── */
+.ui-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── Overlay Base ── */
+.overlay {
+  pointer-events: auto;
+  animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ── MENU SCREEN ── */
+.menu-screen {
+  background: linear-gradient(145deg, rgba(255, 20, 147, 0.92), rgba(199, 21, 133, 0.92));
+  padding: 50px 70px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow:
+    0 0 0 6px #ffd700,
+    0 15px 50px rgba(0, 0, 0, 0.35),
+    0 0 80px rgba(255, 105, 180, 0.4);
+}
+
+.logo-wrapper {
+  margin-bottom: 30px;
+}
+
+.game-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 4.5rem;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-shadow: 
+    3px 3px 0 #c71585,
+    6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.title-patty {
+  color: #ffffff;
+  display: block;
+}
+
+.title-panic {
+  color: #ffd700;
+  display: block;
+  font-size: 5.5rem;
+}
+
+.subtitle {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #ffe4e1;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.menu-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ── PLAY BUTTON ── */
+.btn-play {
+  background: linear-gradient(180deg, #ffd700, #ffb300);
+  color: #c71585;
+  border: none;
+  padding: 18px 45px;
+  font-family: 'Lilita One', cursive;
+  font-size: 1.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #cc8800,
+    0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 1px;
+}
+
+.btn-play:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 9px 0 #cc8800,
+    0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.btn-play:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 2px 0 #cc8800,
+    0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.btn-icon {
+  font-size: 1.4rem;
+}
+
+/* ── Controls Hint ── */
+.controls-hint {
+  display: flex;
+  gap: 20px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.controls-hint p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+kbd {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  min-width: 28px;
+  text-align: center;
+}
+
+/* ── WIN SCREEN ── */
+.win-screen {
+  background: linear-gradient(145deg, rgba(255, 215, 0, 0.95), rgba(255, 183, 0, 0.95));
+  padding: 50px 70px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow:
+    0 0 0 6px #ff1493,
+    0 15px 50px rgba(0, 0, 0, 0.35),
+    0 0 100px rgba(255, 215, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.win-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 4rem;
+  color: #c71585;
+  margin-bottom: 10px;
+  text-shadow:
+    2px 2px 0 rgba(255, 255, 255, 0.5);
+  animation: bounce 0.8s ease infinite alternate;
+}
+
+.win-subtitle {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #8b0050;
+  margin-bottom: 30px;
+}
+
+.btn-replay {
+  background: linear-gradient(180deg, #ff1493, #c71585);
+  color: #ffffff;
+  box-shadow:
+    0 6px 0 #8b004a,
+    0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-replay:hover {
+  box-shadow:
+    0 9px 0 #8b004a,
+    0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+.btn-replay:active {
+  box-shadow:
+    0 2px 0 #8b004a,
+    0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Animations ── */
+@keyframes popIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+/* ── PAUSE SCREEN ── */
+.pause-screen {
+  background: linear-gradient(145deg, rgba(30, 0, 40, 0.92), rgba(60, 0, 60, 0.88));
+  padding: 45px 60px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow:
+    0 0 0 5px rgba(255, 105, 180, 0.5),
+    0 15px 50px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+.pause-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 3.5rem;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 0 rgba(255, 105, 180, 0.5);
+}
+
+.pause-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-restart {
+  background: linear-gradient(180deg, #ff6ec7, #c71585) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 6px 0 #8b004a,
+    0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-restart:hover {
+  box-shadow:
+    0 9px 0 #8b004a,
+    0 14px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+.btn-menu {
+  background: linear-gradient(180deg, #888, #555) !important;
+  color: #ffffff !important;
+  font-size: 1.2rem !important;
+  padding: 12px 35px !important;
+  box-shadow:
+    0 6px 0 #333,
+    0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-menu:hover {
+  box-shadow:
+    0 9px 0 #333,
+    0 14px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+.pause-hint {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pause-hint kbd {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── FLOATING PAUSE BUTTON ── */
+.btn-pause-corner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  pointer-events: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 20, 147, 0.6);
+  backdrop-filter: blur(6px);
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, background 0.15s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-pause-corner:hover {
+  transform: scale(1.15);
+  background: rgba(255, 20, 147, 0.85);
+}
