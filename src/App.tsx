@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Physics } from '@react-three/rapier';
 import { Sky, Environment } from '@react-three/drei';
@@ -17,7 +18,6 @@ function App() {
         <color attach="background" args={['#fce4ec']} />
         <fog attach="fog" args={['#fce4ec', 60, 180]} />
         <Sky sunPosition={[100, 40, 100]} turbidity={0.3} rayleigh={0.5} />
-        <Environment preset="sunset" />
         
         <ambientLight intensity={0.6} />
         <directionalLight 
@@ -38,10 +38,13 @@ function App() {
         <AmbientGlitter count={300} />
         <VIPConfetti count={350} />
 
-        <Physics key={status}>
-          <PlayerController />
-          <Level />
-        </Physics>
+        <Suspense fallback={null}>
+          <Environment preset="sunset" />
+          <Physics key={status}>
+            <PlayerController />
+            <Level />
+          </Physics>
+        </Suspense>
       </Canvas>
     </>
   );
